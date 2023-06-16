@@ -4,7 +4,7 @@
 
 Adds a number of titan bug and exploit fixes via ConVars for server owners to use.
 
-Bug fixes do not include those that are already considered normal game behavior (e.g. Siphon slowing more than it should, Enhanced Payload spawning clusters slower and lasting shorter than it should).
+Bug fixes do not include those that are already considered intended game behavior (e.g. Siphon slowing more than it should, Enhanced Payload spawning clusters slower and lasting shorter than it should).
 
 ## Using the Mod
 
@@ -30,6 +30,10 @@ This system exists to minimize the number of ConVars you need to set if you want
 into your (server) config or launch args.
 
 ConVar settings are applied at match start, so changes made in-game won't apply until the match is restarted. Details about what bug(s) each ConVar fixes are listed in the `mod.json`.
+
+### Reporting Bugs
+
+If you find any crashes/bugs, you can contact me on the Northstar discord @dinorush.
 
 ## Recommended Debug List
 

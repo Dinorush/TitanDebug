@@ -1,6 +1,6 @@
 {
 	"Name": "Titan Debug",
-	"Description": "Adds options to fix various titan-related bugs and exploits.",
+	"Description": "Adds options for servers to fix various titan-related bugs and exploits.",
 	"LoadPriority": 2,
 	"Version": "1.0.0",
 
