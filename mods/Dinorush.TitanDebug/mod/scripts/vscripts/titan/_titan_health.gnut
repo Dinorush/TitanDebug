@@ -725,7 +725,7 @@ void function DoomInvuln_OnDamage( entity titan, var damageInfo )
 	if( DamageInfo_GetForceKill( damageInfo ) )
 		return
 	DamageInfo_SetDamage( damageInfo, 0 )
-
+	
 	entity attacker = DamageInfo_GetAttacker( damageInfo )
 	if ( IsValid( attacker ) && attacker.IsPlayer() )
 		attacker.NotifyDidDamage( titan, DamageInfo_GetHitBox( damageInfo ), DamageInfo_GetDamagePosition( damageInfo ), DamageInfo_GetCustomDamageType( damageInfo ), DamageInfo_GetDamage( damageInfo ), DamageInfo_GetDamageFlags( damageInfo ), DamageInfo_GetHitGroup( damageInfo ), DamageInfo_GetWeapon( damageInfo ), DamageInfo_GetDistFromAttackOrigin( damageInfo ) )

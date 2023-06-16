@@ -270,6 +270,7 @@ bool function OnWeaponVortexHitProjectile_titanweapon_vortex_shield( entity weap
 	unreachable
 }
 
+#if SERVER
 // Check if the rocket has a termination mod
 bool function IsTerminationRocket( entity projectile )
 {
@@ -281,6 +282,7 @@ bool function IsTerminationRocket( entity projectile )
 		return true
 	return false
 }
+#endif
 
 var function OnWeaponPrimaryAttack_titanweapon_vortex_shield( entity weapon, WeaponPrimaryAttackParams attackParams )
 {

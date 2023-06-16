@@ -9,11 +9,6 @@ void function FlightCore_Init()
 {
 	PrecacheParticleSystem( FLIGHT_CORE_IMPACT_FX )
 	PrecacheWeapon( "mp_titanweapon_flightcore_rockets" )
-
-	#if SERVER
-	if ( TitanDebug_GetSetting( "titan_debug_flight_core_no_railgun" ) )
-		RegisterSignal( "FlightCoreActivated" )
-	#endif
 }
 
 bool function OnAbilityStart_FlightCore( entity weapon )
@@ -77,15 +72,6 @@ void function PROTO_FlightCore( entity titan, float flightTime )
 	titan.EndSignal( "TitanEjectionStarted" )
 	titan.EndSignal( "DisembarkingTitan" )
 	titan.EndSignal( "OnSyncedMelee" )
-	// Would like to use a signal, but no way of telling which signal triggered the thread end.
-	if ( TitanDebug_GetSetting( "titan_debug_flight_core_no_railgun" ) )
-	{
-		table titanDotS = expect table( titan.s )
-		titanDotS.titanDebugSingleFlightCore <- false
-		titan.Signal( "FlightCoreActivated" )
-		titan.EndSignal( "FlightCoreActivated" )
-		titanDotS.titanDebugSingleFlightCore = true
-	}
 
 	if ( titan.IsPlayer() )
 		titan.ForceStand()
@@ -94,23 +80,19 @@ void function PROTO_FlightCore( entity titan, float flightTime )
 		function() : ( titan, e, weaponArray )
 		{
 			if ( IsValid( titan ) && titan.IsPlayer() )
-			{
-				if ( TitanDebug_GetSetting( "titan_debug_flight_core_no_railgun" ) )
-				{
-					table titanDotS = expect table( titan.s )
-
-					// Can only be true here if another Flight Core was triggered.
-					// In that case, we cannot run cleanup otherwise that core doesn't get the rocket weapon.
-					if ( "titanDebugSingleFlightCore" in titanDotS && !titanDotS.titanDebugSingleFlightCore )
-						return
-				}
-					
+			{		
 				if ( IsAlive( titan ) && titan.IsTitan() )
 				{
 					if ( HasWeapon( titan, "mp_titanweapon_flightcore_rockets" ) )
 					{
 						EnableWeapons( titan, weaponArray )
-						titan.TakeWeapon( "mp_titanweapon_flightcore_rockets" )
+						if ( TitanDebug_GetSetting( "titan_debug_flight_core_no_railgun" ) )
+						{
+							titan.TakeWeaponNow( "mp_titanweapon_flightcore_rockets" )
+							titan.SetActiveWeaponBySlot( 0 )
+						}
+						else
+							titan.TakeWeapon( "mp_titanweapon_flightcore_rockets" )
 					}
 				}
 

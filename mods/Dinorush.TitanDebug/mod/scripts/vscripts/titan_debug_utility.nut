@@ -46,7 +46,6 @@ struct {
 		titan_debug_sonar_pulse_fix_melee_lock = true,
 
 		titan_debug_power_shot_unlock_disembark = true,
-		titan_debug_gun_shield_not_on_melee = false,
 
 		titan_debug_energy_transfer_hit_detection = true,
 		titan_debug_rearm_no_instant = false,
@@ -58,20 +57,14 @@ struct {
 
 void function TitanDebug_Init()
 {
-	// Rebalance enum is inverted so it is on by default
-	// AddPrivateMatchModeSettingEnum( "#MODE_SETTING_CATEGORY_PROMODE", "ltsrebalance_enable", [ "#SETTING_ENABLED", "#SETTING_DISABLED" ], "0" )
-	// AddPrivateMatchModeSettingEnum( "#MODE_SETTING_CATEGORY_PROMODE", "perfectkits_enable", [ "#SETTING_DISABLED", "#SETTING_ENABLED" ], "0" )
-	// AddPrivateMatchModeSettingEnum( "#MODE_SETTING_CATEGORY_PROMODE", "ltsrebalance_log_ranked", [ "#SETTING_DISABLED", "#SETTING_ENABLED" ], "0" )
 	TitanDebug_SettingsInit()
 
-	// The synced melee chooser for titans isn't created before this runs, so need to thread it
+	// The synced melee chooser for titans isn't created unless it's in an actual match
 	if ( TitanDebug_GetSetting( "titan_debug_termination_fix_suite" ) )
 	{
-		SyncedMeleeChooser chooser
 		try
 		{
-			chooser = GetSyncedMeleeChooser( "titan", "titan" )
-			AddSyncedMeleeServerCallback( chooser, TitanDebug_FixTerminationBugs )
+			AddSyncedMeleeServerCallback( GetSyncedMeleeChooser( "titan", "titan" ), TitanDebug_FixTerminationBugs )
 		}
 		catch( error )
 		{

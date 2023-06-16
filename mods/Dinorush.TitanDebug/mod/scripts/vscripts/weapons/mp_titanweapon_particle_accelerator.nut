@@ -143,8 +143,10 @@ function FireWeaponPlayerAndNPC( entity weapon, WeaponPrimaryAttackParams attack
 
 	entity owner = weapon.GetWeaponOwner()
     bool inADS = weapon.IsWeaponInAds()
+	#if SERVER
 	if ( TitanDebug_GetSetting( "titan_debug_split_shot_damage" ) && inADS && !weapon.s.zoomedIn ) // Fix for Laser Shot -> Splitter not applying ADS attachments
 		OnWeaponStartZoomIn_titanweapon_particle_accelerator( weapon )
+	#endif
 
 	int ADS_SHOT_COUNT = weapon.HasMod( "pas_ion_weapon_ads" ) ? ADS_SHOT_COUNT_UPGRADE : ADS_SHOT_COUNT_NORMAL
 

@@ -117,7 +117,7 @@
 		},
 		{
 			"Name": "titan_debug_laser_shot_need_energy",
-			"Description": "Requires energy to fire Laser Shot, not just to pull it out. Prevents the Zero-Point Laser bug.",
+			"Description": "Requires energy to fire Laser Shot, not just to pull it out. Prevents the Zero-Point Laser bug. (Still appears on client, but does no damage)",
 			"DefaultValue": "2",
 			"Flags": 128
 		},
@@ -218,12 +218,6 @@
 		{
 			"Name": "titan_debug_power_shot_unlock_disembark",
 			"Description": "Fixes Power Shot preventing the player from disembarking if they died or a round ended mid-charge.",
-			"DefaultValue": "2",
-			"Flags": 128
-		},
-		{
-			"Name": "titan_debug_gun_shield_not_on_melee",
-			"Description": "Prevents Legion from activating Gun Shield during melee so it cannot not reduce Gun Shield's effective cooldown.",
 			"DefaultValue": "2",
 			"Flags": 128
 		},
