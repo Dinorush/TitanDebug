@@ -198,19 +198,6 @@ bool function TitanDebug_WaveShouldHit( entity ent, var damageInfo )
 	return true
 }
 
-entity function TitanDebug_DamageInfo_GetWeapon( var damageInfo, entity defaultWeapon = null )
-{
-	entity ent = DamageInfo_GetWeapon( damageInfo )
-	
-	if ( !IsValid( ent ) )
-		ent = DamageInfo_GetInflictor( damageInfo )
-	
-	if ( !IsValid( ent ) || ent.IsPlayer() || ent.IsNPC() )
-		ent = defaultWeapon
-
-	return ent
-}
-
 float function TitanDebug_WaitBuffer( float waitTime, float tickBuffer, string settingCheck = "" )
 {
 	// If setting isn't on, just do normal behavior
