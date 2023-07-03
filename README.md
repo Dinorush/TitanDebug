@@ -31,6 +31,10 @@ into your (server) config or launch args.
 
 ConVar settings are applied at match start, so changes made in-game won't apply until the match is restarted. Details about what bug(s) each ConVar fixes are listed in the `mod.json`.
 
+### Mod Settings
+
+Additionally, for players using a local server (i.e. no dedicated server), the mod settings integration can be used instead. However, the descriptiveness of each setting is rather limited due to the space given.
+
 ### Reporting Bugs
 
 If you find any crashes/bugs, you can contact me on the Northstar discord @dinorush.

@@ -124,6 +124,34 @@
 
 
 		{
+			"Name": "titan_debug_power_shot_unlock_disembark",
+			"Description": "Fixes Power Shot preventing the player from disembarking if they died or a round ended mid-charge.",
+			"DefaultValue": "2",
+			"Flags": 128
+		},
+
+
+		{
+			"Name": "titan_debug_energy_transfer_hit_detection",
+			"Description": "Adds lag compensation for Energy Transfer hits on friendly titans.",
+			"DefaultValue": "2",
+			"Flags": 128
+		},
+		{
+			"Name": "titan_debug_rearm_no_instant",
+			"Description": "Prevents Rearm from activating instantly if initiated two times in quick succession via a melee cancel.",
+			"DefaultValue": "2",
+			"Flags": 128
+		},
+		{
+			"Name": "titan_debug_survival_undoom_fix",
+			"Description": "Fixes Survival of the Fittest undooming in the same server tick as Monarch is doomed granting one bar max health.",
+			"DefaultValue": "2",
+			"Flags": 128
+		},
+
+
+		{
 			"Name": "titan_debug_vtol_hover_no_jamming",
 			"Description": "Fixes Flight Core movement speed being lowered if Hover ends while it's active.",
 			"DefaultValue": "2",
@@ -132,6 +160,14 @@
 		{
 			"Name": "titan_debug_flight_core_no_railgun",
 			"Description": "Fixes activating Flight Cores back-to-back (when using high core gain) not giving the Flight Core rocket weapon.",
+			"DefaultValue": "2",
+			"Flags": 128
+		},
+
+
+		{
+			"Name": "titan_debug_phase_force_rodeo_off",
+			"Description": "Causes Phase Dash (and other forms of Phase) to force enemy rodeo pilots off, preventing Ronin from obtaining a battery for free.",
 			"DefaultValue": "2",
 			"Flags": 128
 		},
@@ -176,14 +212,6 @@
 
 
 		{
-			"Name": "titan_debug_phase_force_rodeo_off",
-			"Description": "Causes Phase Dash (and other forms of Phase) to force enemy rodeo pilots off, preventing Ronin from obtaining a battery for free.",
-			"DefaultValue": "2",
-			"Flags": 128
-		},
-
-
-		{
 			"Name": "titan_debug_salvo_core_no_despawn",
 			"Description": "Fixes Salvo Core firing no more missiles if there are 0 missiles alive at any point during the Core.",
 			"DefaultValue": "2",
@@ -212,34 +240,6 @@
 			"Description": "Fixes Sonar Pulse suffering an invisible 15s cooldown if melee canceled.",
 			"DefaultValue": "2",
 			"Flags": 128
-		},
-
-
-		{
-			"Name": "titan_debug_power_shot_unlock_disembark",
-			"Description": "Fixes Power Shot preventing the player from disembarking if they died or a round ended mid-charge.",
-			"DefaultValue": "2",
-			"Flags": 128
-		},
-
-
-		{
-			"Name": "titan_debug_energy_transfer_hit_detection",
-			"Description": "Adds lag compensation for Energy Transfer hits on friendly titans.",
-			"DefaultValue": "2",
-			"Flags": 128
-		},
-		{
-			"Name": "titan_debug_rearm_no_instant",
-			"Description": "Prevents Rearm from activating instantly if initiated two times in quick succession via a melee cancel.",
-			"DefaultValue": "2",
-			"Flags": 128
-		},
-		{
-			"Name": "titan_debug_survival_undoom_fix",
-			"Description": "Fixes Survival of the Fittest undooming in the same server tick as Monarch is doomed granting one bar max health.",
-			"DefaultValue": "2",
-			"Flags": 128
 		}
 	],
 
@@ -249,6 +249,13 @@
 			"RunOn": "SERVER && MP",
 			"ServerCallback": {
 				"After": "TitanDebug_Init"
+			}
+		},
+		{
+			"Path": "ui/titan_debug_modsettings.nut",
+			"RunOn": "UI",
+			"UICallback": {
+				"After": "TitanDebug_AddModSettings"
 			}
 		}
 	]
