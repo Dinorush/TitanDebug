@@ -60,3 +60,9 @@ These are the debug options enabled with the recommended settings. They focus on
 - `titan_debug_sonar_pulse_fix_melee_lock`: Fixes Sonar Pulse suffering an invisible 15s cooldown if melee canceled.
 - `titan_debug_power_shot_unlock_disembark`: Fixes Power Shot preventing the player from disembarking if they died or a round ended mid-charge.
 - `titan_debug_energy_transfer_hit_detection`: Adds lag compensation for Energy Transfer hits on friendly titans.
+
+## Changelog
+
+### 1.1
+
+- Added Mod Settings support

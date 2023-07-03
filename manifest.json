@@ -1,6 +1,6 @@
 {
     "name": "Titan_Debug",
-    "version_number": "1.0.0",
+    "version_number": "1.1.0",
     "website_url": "https://github.com/Dinorush/LTSRebalance",
     "description": "Adds options for servers to fix various titan-related bugs and exploits.",
     "dependencies": [
