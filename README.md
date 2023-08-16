@@ -63,6 +63,11 @@ These are the debug options enabled with the recommended settings. They focus on
 
 ## Changelog
 
+### 1.1.1
+
+- Fixed github link on package
+- Changed debugging error message to be clearer
+
 ### 1.1
 
 - Added Mod Settings support

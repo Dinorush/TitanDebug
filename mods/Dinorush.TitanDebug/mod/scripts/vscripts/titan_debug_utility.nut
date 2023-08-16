@@ -68,7 +68,7 @@ void function TitanDebug_Init()
 		}
 		catch( error )
 		{
-			print("FAILED TO ADD CALLBACK")
+			print("[TitanDebug] WARNING - Failed to add termination fix callback (this is normal in a lobby).")
 		}
 	}
 
