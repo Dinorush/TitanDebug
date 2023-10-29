@@ -320,7 +320,8 @@ function IgniteTrap( entity damageArea, var damageInfo, bool isExplosiveBarrel =
 	else
 		thread FlameOnMovingGeo( inflictor )
 
-	// For some reason, damageArea doesn't die after this function and can still get lit.
+	// If damageArea takes 0 damage, it ignites but doesn't die. This can happen since Thermal Shield
+	// sets damage dealt to 0 if it isn't looking close enough to the target.
 	// So, we kill it explicitly.
 	if ( TitanDebug_GetSetting( "titan_debug_canister_single_ignite" ) )
 		damageArea.Destroy()
