@@ -37,6 +37,7 @@ struct {
 		titan_debug_canister_no_double_tick = false,
 		titan_debug_flame_core_spread = true,
 
+		titan_debug_sword_block_no_pierce = false,
 		titan_debug_phase_force_rodeo_off = false,
 
 		titan_debug_salvo_core_no_despawn = false,

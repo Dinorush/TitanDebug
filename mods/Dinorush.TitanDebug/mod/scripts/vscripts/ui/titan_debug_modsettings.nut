@@ -41,6 +41,7 @@ void function TitanDebug_AddModSettings()
 	ModSettings_AddEnumSetting( "titan_debug_flight_core_no_railgun", "Fix Flight Core giving Railgun (Rec: On)", [ "Off", "On", "Use Base Setting" ] )
 
 	ModSettings_AddModCategory( "Ronin" )
+	ModSettings_AddEnumSetting( "titan_debug_sword_block_no_pierce", "Fix Sword Block pierce (Rec: Off)", [ "Off", "On", "Use Base Setting" ] )
 	ModSettings_AddEnumSetting( "titan_debug_phase_force_rodeo_off", "Phase forces enemy pilots off (Rec: Off)", [ "Off", "On", "Use Base Setting" ] )
 
 	ModSettings_AddModCategory( "Scorch" )
