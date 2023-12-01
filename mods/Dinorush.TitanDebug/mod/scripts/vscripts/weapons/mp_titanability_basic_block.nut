@@ -317,15 +317,15 @@ void function BasicBlock_OnDamage( entity blockingEnt, var damageInfo )
 
 	entity attacker = DamageInfo_GetAttacker( damageInfo )
 
+	int attachId = blockingEnt.LookupAttachment( "PROPGUN" )
+	vector origin = GetDamageOrigin( damageInfo, blockingEnt )
+	vector eyePos = blockingEnt.GetAttachmentOrigin( attachId )
+	vector blockAngles = blockingEnt.GetAttachmentAngles( attachId )
+	vector fwd = AnglesToForward( blockAngles )
+
+	vector vec1 = Normalize( origin - eyePos )
 	if ( !TitanDebug_GetSetting( "titan_debug_sword_block_no_pierce" ) )
 	{
-		int attachId = blockingEnt.LookupAttachment( "PROPGUN" )
-		vector origin = GetDamageOrigin( damageInfo, blockingEnt )
-		vector eyePos = blockingEnt.GetAttachmentOrigin( attachId )
-		vector blockAngles = blockingEnt.GetAttachmentAngles( attachId )
-		vector fwd = AnglesToForward( blockAngles )
-
-		vector vec1 = Normalize( origin - eyePos )
 		float dot = DotProduct( vec1, fwd )
 		float angleRange = GetAngleForBlock( blockingEnt )
 		float minDot = AngleToDot( angleRange )
