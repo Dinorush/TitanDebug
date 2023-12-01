@@ -2,7 +2,7 @@
 	"Name": "Titan Debug",
 	"Description": "Adds options for servers to fix various titan-related bugs and exploits.",
 	"LoadPriority": 2,
-	"Version": "1.1.1",
+	"Version": "1.2.0",
 
 	"ConVars": [
 		{
@@ -165,6 +165,12 @@
 		},
 
 
+		{
+			"Name": "titan_debug_sword_block_no_pierce",
+			"Description": "Removes the inconsistent hitbox on Sword Block that allows damage through unblocked.",
+			"DefaultValue": "2",
+			"Flags": 128
+		},
 		{
 			"Name": "titan_debug_phase_force_rodeo_off",
 			"Description": "Causes Phase Dash (and other forms of Phase) to force enemy rodeo pilots off, preventing Ronin from obtaining a battery for free.",

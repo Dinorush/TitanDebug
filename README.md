@@ -63,6 +63,10 @@ These are the debug options enabled with the recommended settings. They focus on
 
 ## Changelog
 
+### 1.2
+
+- Added setting to fix Sword Block pierce
+
 ### 1.1.1
 
 - Fixed github link on package
