@@ -23,7 +23,7 @@ void function MpTitanWeaponTrackerRockets_Init()
 	#if CLIENT
 	AddCallback_PlayerClassChanged( TrackerRockets_OnPlayerClassChanged )
 	#else
-	if ( TitanDebug_GetSetting( "titan_debug_tracker_rockets_disembark_clear_locks" ))
+	if ( TitanDebug_GetSetting( "titan_debug_tracker_rockets_disembark_clear_locks" ) )
 		AddCallback_OnTitanBecomesPilot( TitanDebug_ClearTrackerOnDisembark )
 	#endif
 }
