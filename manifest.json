@@ -1,6 +1,6 @@
 {
     "name": "Titan_Debug",
-    "version_number": "1.2.2",
+    "version_number": "1.2.3",
     "website_url": "https://github.com/Dinorush/TitanDebug",
     "description": "Adds options for servers to fix various titan-related bugs and exploits.",
     "dependencies": []
