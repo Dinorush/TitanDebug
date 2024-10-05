@@ -63,6 +63,10 @@ These are the debug options enabled with the recommended settings. They focus on
 
 ## Changelog
 
+### 1.2.2
+
+- Fixed 2 Vortex-related crashes
+
 ### 1.2.1
 
 - Fixed syntax error

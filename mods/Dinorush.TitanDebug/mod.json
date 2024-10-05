@@ -2,7 +2,7 @@
 	"Name": "Titan Debug",
 	"Description": "Adds options for servers to fix various titan-related bugs and exploits.",
 	"LoadPriority": 2,
-	"Version": "1.2.1",
+	"Version": "1.2.2",
 
 	"ConVars": [
 		{
