@@ -1323,7 +1323,7 @@ function Vortex_ProjectileCommonSetup( entity projectile, impactData )
 	if ( TitanDebug_GetSetting( "titan_debug_vortex_tether_damage" ) )
 		TitanDebug_FixTetherReflect( projectile )
 
-	if ( impactData.ampedVortex )
+	if ( TitanDebug_GetSetting( "titan_debug_vortex_amplifier_projectiles" ) && impactData.ampedVortex )
         OnFireAmpProjectile( projectile )
 }
 
@@ -2077,7 +2077,7 @@ void function TitanDebug_FixVortexRefire( entity victim, var damageInfo )
 float function GetProjectileDamageScaleToMods( entity victim, var damageInfo, string weaponName, array<string> mods )
 {
 	entity attacker = DamageInfo_GetAttacker( damageInfo )
-	bool isPlayer = true
+	bool isPlayer = true	
 
 	if ( IsValid( attacker ) && !attacker.IsProjectile() )
 		isPlayer = attacker.IsPlayer()
@@ -2177,7 +2177,7 @@ function TitanDebug_FixVortexRefireExplosion( projectile )
 							"explosion_damage_heavy_armor", "explosion_damage" ]
 
 	entity owner = projectile.GetOwner()
-	bool isPlayer = !IsValid( owner ) ? owner.IsPlayer() : true
+	bool isPlayer = IsValid( owner ) && !owner.IsProjectile() ? owner.IsPlayer() : true
 	string weaponName = projectile.ProjectileGetWeaponClassName()
 
 	int start = 2 * isPlayer.tointeger()
