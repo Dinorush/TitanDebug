@@ -61,13 +61,17 @@ void function FlyerHovers( entity player, HoverSounds soundInfo, float flightTim
     float RISE_VEL = 450
     // HACK: use friction and velocity to detect if the user was in hover and rising.
     // Using this to make limiting Core height feasible while fixing jammed thrusters.
-    bool stallHover = TitanDebug_GetSetting( "titan_debug_vtol_hover_no_jamming" ) && player.GetGroundFrictionScale() == 0 && player.GetVelocity().z >= RISE_VEL * 0.5
-    player.Signal( "VTOLHoverBegin" )
+    bool stallHover = false
+	if ( TitanDebug_GetSetting( "titan_debug_vtol_hover_no_jamming" ) )
+	{
+		if ( player.GetGroundFrictionScale() == 0 && player.GetVelocity().z >= RISE_VEL * 0.5 )
+			stallHover = true
+		player.Signal( "VTOLHoverBegin" )
+		player.EndSignal( "VTOLHoverBegin" )
+	}
     
 	player.EndSignal( "OnDeath" )
-	player.EndSignal( "TitanEjectionStarted" )
-	if ( TitanDebug_GetSetting( "titan_debug_vtol_hover_no_jamming" ) )
-		player.EndSignal( "VTOLHoverBegin" )
+	player.EndSignal( "TitanEjectionStarted" )		
 
 	thread AirborneThink( player, soundInfo )
 	if ( player.IsPlayer() )
